@@ -15,9 +15,11 @@ class CheckToken
      */
     public function handle($request, Closure $next)
     {
-        if ($request->token) { 
+        if ($request->header('token')) {
             return $next($request);
-        } 
-        return redirect('login');     
+        } else {
+            // return redirect('login');
+            return response()->json(['status'=>'error'],403);
+        }    
     }
 }

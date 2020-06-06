@@ -87,4 +87,8 @@ class UserController extends Controller
     {
         return view('login');
     }
+
+    public function check(){
+        return response()->json(['data'=>'ok']);
+    }
 }
